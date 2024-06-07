@@ -6,7 +6,7 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Hola Mundo desde TypeScript!');
+  res.send('Hola Mundo desde TypeScript');
 });
 
 app.listen(PORT, () => {
