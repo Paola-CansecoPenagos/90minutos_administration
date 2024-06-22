@@ -24,7 +24,3 @@ export class GetAllPackageRatingRequest {
         }
     }
 }
-
-// Instancia específica para la cola de request
-const getAllPackageRatingReqSaga = new GetAllPackageRatingRequest();
-getAllPackageRatingReqSaga.receiveMessage();

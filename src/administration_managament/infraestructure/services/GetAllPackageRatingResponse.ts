@@ -17,7 +17,3 @@ export class GetAllPackageRatingResponse {
         }
     }
 }
-
-// Ejemplo de uso
-const getAllPackageRatingRes = new GetAllPackageRatingResponse();
-getAllPackageRatingRes.sendMessage({ ratings: [] });

@@ -17,7 +17,3 @@ export class GetAllPackagesResponse {
         }
     }
 }
-
-// Ejemplo de uso
-const getAllPackagesRes = new GetAllPackagesResponse();
-getAllPackagesRes.sendMessage({ packages: [] });

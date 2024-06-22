@@ -1,10 +1,10 @@
 import { Signale } from "signale";
 import { setupRabbitMQ } from "../config/RabbitConfig";
 
-export class GetAllPackagesRequest {
-    private queueName: string = process.env.RABBIT_QUEUE_GET_ALL_PACKAGES_REQ_ADMINISTRATION || 'default';
+export class GetAllPaymentsMembersRequest {
+    private queueName: string = process.env.RABBIT_QUEUE_GET_ALL_PAYMENTS_MEMBERS_REQ_ADMINISTRATION || 'default';
     private exchangeName: string = process.env.RABBIT_EXCHANGE_ADMINISTRATION_EXCHANGE || 'default';
-    private routingKey: string = process.env.RABBIT_ROUTING_KEY_GET_ALL_PACKAGES_REQ_ADMINISTRATION || 'default';
+    private routingKey: string = process.env.RABBIT_ROUTING_KEY_GET_ALL_PAYMENTS_MEMBERS_REQ_ADMINISTRATION || 'default';
 
     async receiveMessage(): Promise<void> {
         const signale = new Signale();

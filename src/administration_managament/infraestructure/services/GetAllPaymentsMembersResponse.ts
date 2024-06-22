@@ -1,10 +1,10 @@
 import { Signale } from "signale";
 import { setupRabbitMQ } from "../config/RabbitConfig";
 
-export class GetAllPackageCommentResponse {
-    private queueName: string = process.env.RABBIT_QUEUE_GET_ALL_PACKAGE_COMMENT_RES_ADMINISTRATION || 'default';
+export class GetAllPaymentsMembersResponse {
+    private queueName: string = process.env.RABBIT_QUEUE_GET_ALL_PAYMENTS_MEMBERS_RES_ADMINISTRATION || 'default';
     private exchangeName: string = process.env.RABBIT_EXCHANGE_ADMINISTRATION_EXCHANGE || 'default';
-    private routingKey: string = process.env.RABBIT_ROUTING_KEY_GET_ALL_PACKAGE_COMMENT_RES_ADMINISTRATION || 'default';
+    private routingKey: string = process.env.RABBIT_ROUTING_KEY_GET_ALL_PAYMENTS_MEMBERS_RES_ADMINISTRATION || 'default';
 
     async sendMessage(message: any): Promise<void> {
         const signale = new Signale();
@@ -17,7 +17,3 @@ export class GetAllPackageCommentResponse {
         }
     }
 }
-
-// Ejemplo de uso
-const getAllPackageCommentRes = new GetAllPackageCommentResponse();
-getAllPackageCommentRes.sendMessage({ comments: [] });
