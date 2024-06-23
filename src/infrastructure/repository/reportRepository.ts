@@ -3,9 +3,9 @@ import { Report } from '../../domain/models/report';
 import axios from 'axios';
 
 export class ReportRepository implements IReportRepository {
-    private commentsApiUrl = 'http://external-api.com/comments';
-    private earningsApiUrl = 'http://external-api.com/earnings';
-    private packagesApiUrl = 'http://external-api.com/packages';
+    private commentsApiUrl = 'http://'; //endpoint para los comentarios
+    private earningsApiUrl = 'http://'; //endpoint para las ganancias/membresias
+    private packagesApiUrl = 'http://'; //endpoint para los paquetes
 
     async fetchReport(): Promise<Report | null> {
         try {
@@ -23,7 +23,7 @@ export class ReportRepository implements IReportRepository {
                 packagesData.totalPackages
             );
         } catch (error) {
-            console.error('Failed to fetch report data:', error);
+            console.error('No se pudieron recuperar los datos del reporte:', error);
             return null;
         }
     }

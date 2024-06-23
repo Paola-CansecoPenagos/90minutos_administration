@@ -10,7 +10,7 @@ export class MessagingService {
 
         channel.consume('report_updates', (message: ConsumeMessage | null) => {
             if (message !== null) {
-                console.log("Received a message in 'report_updates' queue:", message.content.toString());
+                console.log("Mensaje de la cola 'report_updates':", message.content.toString());
                 channel.ack(message);
             }
         });
