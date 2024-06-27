@@ -19,7 +19,7 @@ Este proyecto es un microservicio desarrollado en TypeScript, diseñado para int
 Para instalar y configurar este microservicio, sigue los pasos a continuación:
 
 1. Clona el repositorio:
-   git clone
+   git clone https://github.com/Paola-CansecoPenagos/90minutos_administration.git
    
 2. Instala las dependencias:
     npm install
@@ -29,5 +29,6 @@ Configura las variables de entorno necesarias para la conexión a la base de dat
 Inicia el servicio:
     npm start
 
-Documentación de API
+##Documentación de API
 El enlace a la colección de Postman para probar las API endpoints estará disponible aquí:
+   https://documenter.getpostman.com/view/23486069/2sA3dskYx8 
