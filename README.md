@@ -4,8 +4,8 @@ Este proyecto es un microservicio desarrollado en TypeScript, diseñado para int
 
 ## Características
 
-- **Generación de Informes**: Proporciona informes detallados sobre los ingresos totales y mensuales.
-- **Evaluación de Satisfacción del Cliente**: Permite a los administradores entender mejor la percepción del público sobre el servicio.
+- **Generación de nformes**: Proporciona informes detallados sobre los ingresos totales y mensuales.
+- **Evaluación de satisfacción del cliente**: Permite a los administradores entender mejor la percepción del público sobre el servicio.
 - **Integración con RabbitMQ**: Utiliza RabbitMQ para la comunicación con otros microservicios dentro del ecosistema de la aplicación.
 
 ## Tecnologías Utilizadas
