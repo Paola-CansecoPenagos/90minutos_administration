@@ -5,7 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const signale_1 = require("signale");
-const report_routes_1 = require("./infrastructure/routes/report_routes"); // Asegúrate de que la ruta de importación sea correcta
+const report_routes_1 = require("./infrastructure/routes/report_routes");
+require("./scheduled_tasks/update_package_cron");
 const app = (0, express_1.default)();
 const PORT = 3000;
 const signale = new signale_1.Signale();

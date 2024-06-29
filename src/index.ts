@@ -1,6 +1,7 @@
 import express from 'express';
 import { Signale } from "signale";
-import { packageRoutes } from './infrastructure/routes/report_routes'; // Asegúrate de que la ruta de importación sea correcta
+import { packageRoutes } from './infrastructure/routes/report_routes'; 
+import './scheduled_tasks/update_package_cron';
 
 const app = express();
 const PORT = 3000;

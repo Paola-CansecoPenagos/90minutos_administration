@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { FetchPackage } from '../../application/usecases/fetch_package'; // Verifica las rutas de importación
+import { FetchPackage } from '../../application/usecases/fetch_package';
 import { PackageRepository } from '../repositories/fetch_package_repository';
 
 export class FetchPackageController {
