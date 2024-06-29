@@ -1,24 +1,26 @@
 import express from 'express';
-import {Signale} from "signale";
-
+import { Signale } from "signale";
+import { packageRoutes } from './infrastructure/routes/report_routes'; // Asegúrate de que la ruta de importación sea correcta
 
 const app = express();
 const PORT = 3000;
-let server = null;
 const signale = new Signale();
 
+app.use(express.json()); // Middleware para parsear JSON
 
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Hola Mundo desde TypeScript');
+// Middleware de registro para ver las solicitudes que llegan
+app.use((req, res, next) => {
+    console.log(`Solicitud recibida para ${req.path}`);
+    next();
 });
 
+
+app.use('/', packageRoutes);
+
 async function startServer() {
-  server = app.listen(PORT, () => {
-      signale.success(`Servidor corriendo en http://localhost:${PORT}`);
-  });
-  
+    const server = app.listen(PORT, () => {
+        signale.success(`Servidor corriendo en http://localhost:${PORT}`);
+    });
 }
 
 startServer();
