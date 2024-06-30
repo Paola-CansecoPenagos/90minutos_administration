@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const signale_1 = require("signale");
 const report_routes_1 = require("./infrastructure/routes/report_routes");
 require("./scheduled_tasks/update_package_cron");
+const Dependencies_1 = require("./administration_managament/infraestructure/Dependencies");
 const app = (0, express_1.default)();
 const PORT = 3000;
 const signale = new signale_1.Signale();
@@ -20,6 +21,7 @@ app.use('/', report_routes_1.packageRoutes);
 async function startServer() {
     const server = app.listen(PORT, () => {
         signale.success(`Servidor corriendo en http://localhost:${PORT}`);
+        (0, Dependencies_1.initGetAllPackagesRequest)();
     });
 }
 startServer();

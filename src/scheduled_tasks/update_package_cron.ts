@@ -3,7 +3,7 @@ import { UpdatePackageStatusService } from '../application/services/update_packa
 
 const updateService = new UpdatePackageStatusService();
 
-const job = new CronJob('*/2 * * * *', function() {
+const job = new CronJob('*/10 * * * * *', function() {
   console.log('Running UpdatePackageStatusService...');
   updateService.updatePackageCounts();
 }, null, true, 'America/New_York');
