@@ -2,6 +2,15 @@ import axios from 'axios';
 import { PackageRepository } from '../../infrastructure/repositories/fetch_package_repository';
 import { Report } from '../../domain/entities/report';
 
+function normalizePackageStatus(status: string): string {
+    const statusMap: { [key: string]: string } = {
+        'En ruta': 'EnRuta',
+        'En oficina': 'EnOficina',
+        'Re-programado': 'Reprogramado'
+    };
+    return statusMap[status] || status;
+}
+
 export class FetchPackage {
     packageRepository: PackageRepository;
 
@@ -14,7 +23,8 @@ export class FetchPackage {
         const packages = response.data.data;
         const totalPackages = packages.length;
         const packagesByStatus = packages.reduce((acc: { [key: string]: number }, pkg: any) => {
-            acc[pkg.status] = (acc[pkg.status] || 0) + 1;
+            const normalizedStatus = normalizePackageStatus(pkg.status);
+            acc[normalizedStatus] = (acc[normalizedStatus] || 0) + 1;
             return acc;
         }, {});
 

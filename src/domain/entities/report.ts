@@ -7,4 +7,3 @@ export class Report {
       this.packagesByStatus = packagesByStatus;
     }
   }
-  

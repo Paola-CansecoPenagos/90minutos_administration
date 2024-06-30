@@ -1,4 +1,3 @@
-// src\application\services\update_package_status.ts
 import axios from 'axios';
 import { Signale } from 'signale';
 import { UpdateReportRepository } from '../../infrastructure/repositories/update_report_repository';
@@ -13,6 +12,15 @@ interface PackageCounts {
   [status: string]: number;
 }
 
+function normalizePackageStatus(status: string): string {
+    const statusMap: { [key: string]: string } = {
+        'En ruta': 'EnRuta',
+        'En oficina': 'EnOficina',
+        'Re-programado': 'Reprogramado'
+    };
+    return statusMap[status] || status; // Retorna el estado transformado o el original si no necesita transformación.
+}
+
 export class UpdatePackageStatusService {
     private signale = new Signale();
     private updateReportRepository = new UpdateReportRepository();
@@ -25,7 +33,8 @@ export class UpdatePackageStatusService {
 
             const totalPackages = packages.length;
             const packagesByStatus = packages.reduce((acc: PackageCounts, pkg: Package) => {
-                acc[pkg.status] = (acc[pkg.status] || 0) + 1;
+                const normalizedStatus = normalizePackageStatus(pkg.status);
+                acc[normalizedStatus] = (acc[normalizedStatus] || 0) + 1;
                 return acc;
             }, {});
 
