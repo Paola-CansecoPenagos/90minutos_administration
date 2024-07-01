@@ -12,7 +12,7 @@ app.use(express.json()); // Middleware para parsear JSON
 
 // Middleware de registro para ver las solicitudes que llegan
 app.use((req, res, next) => {
-    console.log(`Solicitud recibida para ${req.path}`);
+    console.log(`Solicitud recibida ${req.path}`);
     next();
 });
 
