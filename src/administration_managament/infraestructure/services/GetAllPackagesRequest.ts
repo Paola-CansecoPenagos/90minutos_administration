@@ -15,7 +15,7 @@ export class GetAllPackagesRequest {
             channel.consume(this.queueName, async (msg) => {
                 if (msg) {
                     const content: any = JSON.parse(msg.content.toString());
-                    await this.updateReportRepository.updatePackageCounts(content.totalPackages, content.packagesByStatus);
+                    await this.updateReportRepository.updatePackageCounts(content.totalPackages, content.totalMemberships, content.packagesByStatus, content.membershipsByType, content.membershipsByStatus);
                     signale.info('Message received:', msg.content.toString());
                     signale.info('Message content:', content);
                     // TODO: Process the message content as needed
